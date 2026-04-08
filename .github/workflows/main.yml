@@ -1,4 +1,4 @@
-namnname: Digital Zone-WhatsApp-Bot
+name: Digital Zone-WhatsApp-Bot
 
 on:
   workflow_dispatch:
