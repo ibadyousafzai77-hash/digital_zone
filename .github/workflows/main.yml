@@ -1,13 +1,14 @@
-name: Digital Zone-WhatsApp-Bot
+name: Digital Zone WhatsApp Bot
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */5 * * *' 
+    - cron: '0 */5 * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -20,7 +21,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Start AI Bot
+      - name: Start Bot (Keep Alive)
         env:
           FIREBASE_URL: ${{ secrets.FIREBASE_URL }}
-        run: npm start
+        run: |
+          echo "Starting Digital Zone Bot..."
+          node index.js &
+          sleep 21600
